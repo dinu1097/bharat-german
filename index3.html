@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+    </script>
+    <title>Booking App</title>
+</head>
+<body>
+
+<div class="navbar nav-tabs">
+    <a href="#" onclick="openTab('hotels')">Hotels</a>
+    <a href="#" onclick="openTab('flights')">Flights</a>
+    <a href="#" onclick="openTab('cars')">Cars</a>
+</div>
+
+<div id="hotels" class="tab-content">
+    <h2>Hotel Booking</h2>
+    <form action="hotel_booking_handler.php" method="post">
+        <!-- Hotel booking form elements go here -->
+    </form>
+</div>
+
+<div id="flights" class="tab-content">
+    <h2>Flight Booking</h2>
+    <form action="flight_booking_handler.php" method="post">
+        <!-- Flight booking form elements go here -->
+    </form>
+</div>
+
+<div id="cars" class="tab-content">
+    <h2>Car Booking</h2>
+    <form action="car_booking_handler.php" method="post">
+        <!-- Car booking form elements go here -->
+    </form>
+</div>
+
+</body>
+</html>

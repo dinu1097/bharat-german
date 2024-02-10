@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .dinnis-card {
+            display: flex;
+            flex-direction: row; /* Align items in a row (image next to text) */
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 100px; /* Set the fixed height for the card */
+        }
+
+        .dinnis-card img {
+            width: 25%; /* Image width set to 1/4th */
+            height: 100%; /* Set image height to 100% of the card height */
+            object-fit: cover;
+            border-radius: 15px 0 0 15px;
+        }
+
+        .dinnis-card-text {
+            flex: 1; /* Allow text to take remaining space */
+            padding: 15px;
+            text-align: center;
+            width: 75%; /* Text width set to 3/4th */
+        }
+
+        .dinnis-card-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>Image Cards</title>
+</head>
+
+<body>
+
+    <div class="dinnis-card-container">
+
+        <div class="dinnis-card">
+            <img src="images/img1.jpg" alt="Image 1">
+            <div class="dinnis-card-text">Card 1</div>
+        </div>
+
+        <div class="dinnis-card">
+            <img src="images/img2.jpg" alt="Image 2">
+            <div class="dinnis-card-text">Card 2</div>
+        </div>
+
+        <div class="dinnis-card">
+            <img src="images/img3.jpg" alt="Image 3">
+            <div class="dinnis-card-text">Card 3</div>
+        </div>
+
+        <div class="dinnis-card">
+            <img src="images/img4.jpg" alt="Image 4">
+            <div class="dinnis-card-text">Card 4</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
