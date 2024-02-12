@@ -1,46 +1,60 @@
 <?php
 // Assuming you have a database connection here
 // Include the SearchFunctions class
-include '../controllers/FlightController.php';
+include '../../controllers/Admin/FlightController.php';
+include '../../controllers/Admin/HotelController.php';
 
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'];
-    $data = $_POST;
-    // Create an instance of the SearchFunctions class
-    $searchFunctions = new SearchFunctions();
+// $action = $_POST['action'];
+// // echo $action;
+// $data = $_POST;
+// $tmp_file = $_FILES['csvFile']['tmp_name'];
+// $controller = new HotelController();
+// $controller->uploadCSV($data, $tmp_file);
 
-    // Handle different actions based on the form submission
-    switch ($action) {
-        case 'flightCSV':
-
-            // Usage
-            $controller = new FlightController();
-            $controller->uploadCSV($data);
-
-
-
-            break;
-
-        case 'searchFlights':
+echo "welcome";
+            $controller = new HotelController();
+            $controller->uploadCSV($data, $tmp_file);
+// // echo $action; 
+// // Check if the form is submitted
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $action = $_POST['action'];
+//     // echo $action;
+//     $data = $_POST;
+//     $tmp_file = $_FILES['csvFile']['tmp_name'];
 
 
+//     // Handle different actions based on the form submission
+//     switch ($action) {
+//         case 'flightCSV':
 
-            break;
+//             // Usage
+//             // echo $tmp_file;
+//             $controller = new FlightController();
+//             $controller->uploadCSV($data, $tmp_file);
 
-        case 'searchCars':
 
 
-            break;
+//             break;
 
-        default:
-            // Handle unknown action
-            break;
-    }
+//         case 'hoteoCSV':
 
-    // Output the search results or perform further actions
-    // ...
-    // 
-}
-?>
+//             $controller = new HotelController();
+//             $controller->uploadCSV($data, $tmp_file);
+
+//             break;
+
+//         case 'searchCars':
+
+
+//             break;
+
+//         default:
+//             // Handle unknown action
+//             break;
+//     }
+
+//     // Output the search results or perform further actions
+//     // ...
+//     // 
+// }

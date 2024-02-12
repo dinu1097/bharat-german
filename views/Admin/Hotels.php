@@ -76,7 +76,7 @@
             </div>
             <div class="col-sm-6">
                 <h2>Upload CSV</h2>
-                <form>
+                <form action="../../Routes/Admin/AdminRoutes.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="csvFile">Select CSV File</label>
                         <input type="file" class="form-control-file" id="csvFile">
@@ -89,6 +89,7 @@
                             <option value="5">5 Star</option>
                         </select>
                     </div>
+                    <input type="hidden" name="action" value="hotelCSV">
                     <button type="submit" class="btn btn-primary">Upload</button>
                 </form>
 

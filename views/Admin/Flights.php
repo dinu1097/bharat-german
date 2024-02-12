@@ -26,10 +26,10 @@
             </div>
             <div class="col-sm-6">
                 <h2>Upload CSV</h2>
-                <form>
+                <form action="../../Routes/Admin/AdminRoutes.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="csvFile">Select CSV File</label>
-                        <input type="file" class="form-control-file" id="csvFile">
+                        <input type="file" class="form-control-file" id="csvFile" name="csvFile">
                     </div>
                     <div class="form-group">
                         <label for="tripType">Trip Type</label>
