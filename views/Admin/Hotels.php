@@ -10,6 +10,12 @@
 
 <body>
     <?php include "nav.php"; ?>
+    <?php
+    // Retrieve the results from the URL parameter
+    $results = json_decode(urldecode($_GET['results']), true);
+
+    // Now $results contains the flight search results
+    ?>
     <!-- Modal -->
     <div class="modal fade" id="addHotelModal" tabindex="-1" role="dialog" aria-labelledby="addHotelModalLabel"
         aria-hidden="true">
@@ -22,36 +28,47 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <!-- HotelRoutesInsert.php -->
+                    <form action="../../Routes/Admin/HotelRoutesInsert.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="hotelName">Hotel Name</label>
-                            <input type="text" class="form-control" id="hotelName">
-                        </div>
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location">
+                            <label for="checkInDate">City</label>
+                            <input type="text" class="form-control" name="City">
                         </div>
                         <div class="form-group">
                             <label for="checkInDate">Check-in Date</label>
-                            <input type="date" class="form-control" id="checkInDate">
+                            <input type="date" class="form-control" name="checkInDate">
                         </div>
                         <div class="form-group">
                             <label for="checkOutDate">Check-out Date</label>
-                            <input type="date" class="form-control" id="checkOutDate">
+                            <input type="date" class="form-control" name="checkOutDate">
                         </div>
                         <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="text" class="form-control" id="price">
+                            <label for="room_type">Room Type</label>
+                            <input type="text" class="form-control" name="room_type">
                         </div>
                         <div class="form-group">
-                            <label for="rating">Rating</label>
-                            <input type="text" class="form-control" id="rating">
+                            <label for="guest_name">Guest Name</label>
+                            <input type="text" class="form-control" name="guest_name">
                         </div>
                         <div class="form-group">
-                            <label for="facilities">Facilities</label>
-                            <input type="text" class="form-control" id="facilities">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email">
                         </div>
+                        <div class="form-group">
+                            <label for="contact_number">Contact Number</label>
+                            <input type="text" class="form-control" name="contact_number">
+                        </div>
+                        <div class="form-group">
+                            <label for="hotelRating">Hotel Rating</label>
+                            <select class="form-control" name="hotelRating">
+                                <option value="0-3">0-3 Star</option>
+                                <option value="4">4 Star</option>
+                                <option value="5">5 Star</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -66,24 +83,48 @@
 
 
             <div class="col-sm-6">
-                <h2>Hotel Information</h2>
-                <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#addHotelModal">Add
-                    Hotel</button>
-                <button type="button" class="btn btn-danger mb-5" data-toggle="modal"
-                    data-target="#addHotelModal">Delete
-                    All
-                    Hotel Data</button>
+                <div class="col-sm-6">
+                    <h2>Hotel Information</h2>
+                    <button type="button" class="btn btn-primary mb-5" data-toggle="modal"
+                        data-target="#addHotelModal">Add
+                        Hotel</button>
+                </div>
+                <div class="col-sm-6">
+                    <h2>Delete table</h2>
+                    <form action="../../Routes/Admin/HotelRoutesDelete.php" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="hotelRating">Hotel Rating</label>
+                                    <select class="form-control" name="hotelRating">
+                                        <option value="0-3">0-3 Star</option>
+                                        <option value="4">4 Star</option>
+                                        <option value="5">5 Star</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
             </div>
             <div class="col-sm-6">
                 <h2>Upload CSV</h2>
-                <form action="../../Routes/Admin/AdminRoutes.php" method="post" enctype="multipart/form-data">
+                <form action="../../Routes/Admin/HotelRoutes.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="csvFile">Select CSV File</label>
-                        <input type="file" class="form-control-file" id="csvFile">
+                        <input type="file" class="form-control-file" name="csvFile">
                     </div>
                     <div class="form-group">
                         <label for="hotelRating">Hotel Rating</label>
-                        <select class="form-control" id="hotelRating">
+                        <select class="form-control" name="hotelRating">
                             <option value="0-3">0-3 Star</option>
                             <option value="4">4 Star</option>
                             <option value="5">5 Star</option>
@@ -100,12 +141,12 @@
     </div>
     <div class="container mb-5">
         <h2>Select table</h2>
-        <form>
+        <form action="../../Routes/Admin/HotelRoutesSearch.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="hotelRating">Hotel Rating</label>
-                        <select class="form-control" id="hotelRating">
+                        <select class="form-control" name="hotelRating">
                             <option value="0-3">0-3 Star</option>
                             <option value="4">4 Star</option>
                             <option value="5">5 Star</option>
@@ -136,24 +177,40 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                // Sample hotel data (replace with actual data)
-                $hotels = array(
-                    array("Hotel A", "New York", "2024-02-10", "2024-02-17", "$150", "4.5", "Pool, Gym, Free Wi-Fi"),
-                    array("Hotel B", "Los Angeles", "2024-02-12", "2024-02-15", "$200", "4.2", "Spa, Restaurant, Parking"),
-                    // Add more hotels as needed
-                );
+                <?php foreach ($results as $hotel): ?>
+                    <tr>
+                        <td>
+                            <?= $hotel['id'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['city'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['checkin_date'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['checkout_date'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['room_type'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['guest_name'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['email'] ?>
+                        </td>
+                        <td>
+                            <?= $hotel['contact_number'] ?>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <?= $flight['button_proceed'] ?> Proceed
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
 
-                // Loop through hotels to generate rows
-                for ($i = 0; $i < 10; $i++) {
-                    echo "<tr>";
-                    foreach ($hotels[$i % count($hotels)] as $hotel_info) {
-                        echo "<td>$hotel_info</td>";
-                    }
-                    echo "<td><button class='btn btn-danger'>Delete</button></td>";
-                    echo "</tr>";
-                }
-                ?>
             </tbody>
         </table>
     </div>

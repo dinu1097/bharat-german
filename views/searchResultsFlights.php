@@ -200,61 +200,78 @@
 
     // Now $results contains the flight search results
     ?>
-    <div class="container-fluid mt-5">
-        <p id="blink-text" class="text-white blink">Only few seats left at this price!! <a href="tel:+918452825985"
-                class="btn" style="background-color:#ECB159;">Click to call</a></p>
-        <h2 class="text-white">Search Results - Additional baggage fees may apply</h2>
-        <table class="table" style="color: white;">
-            <thead>
-                <tr>
-                    <th>Airline Name</th>
-                    <th>Logo</th>
-                    <th>Flight Date</th>
-                    <th>Flying From</th>
-                    <th>Flying To</th>
-                    <th>Trip Type</th>
-                    <th>Flight Class</th>
-                    <th>Fare/Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($results as $flight): ?>
-                    <tr>
-                        <td>
-                            <?= $flight['airline_name'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['logo'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['flight_date'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['flying_from'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['flying_to'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['trip_type'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['flight_class'] ?>
-                        </td>
-                        <td>
-                            <?= $flight['fare_price'] ?>
-                        </td>
-                        <td><a href="#" class="btn btn-primary btn-sm">
-                                <?= $flight['button_proceed'] ?>
-                                Proceed
-                            </a></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <p>Additional baggage fees may apply.</p>
-    </div>
+    <?php
+    // Group flights by airline name
+    $flightsByAirline = [];
+    foreach ($results as $flight) {
+        $airlineName = $flight['airline_name'];
+        if (!isset($flightsByAirline[$airlineName])) {
+            $flightsByAirline[$airlineName] = [];
+        }
+        $flightsByAirline[$airlineName][] = $flight;
+    }
+    ?>
+
+    <?php foreach ($flightsByAirline as $airlineName => $flights): ?>
+        <div class="card mt-5 bg-white">
+            <div class="card-header text-black">
+                <h1>
+                    <?= $airlineName ?>
+                </h1>
+            </div>
+            <div class="card-body">
+                <table class="table" style="color: white;">
+                    <thead>
+                        <tr>
+                            <th class="text-black">Logo</th>
+                            <th class="text-black">Flight Date</th>
+                            <th class="text-black">Flying From</th>
+                            <th class="text-black">Flying To</th>
+                            <th class="text-black">Fare/Price</th>
+                            <th class="text-black">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($flights as $flight): ?>
+                            <tr>
+                                <td class="text-black">
+                                    <?= $flight['logo'] ?>
+                                </td>
+                                <td class="text-black">
+                                    <?= $flight['flight_date'] ?>
+                                </td>
+                                <td class="text-black">
+                                    <?= $flight['flying_from'] ?>
+                                </td>
+                                <td class="text-black">
+                                    <?= $flight['flying_to'] ?>
+                                </td>
+                                <td class="text-black">
+                                    <?= $flight['fare_price'] ?>
+                                </td>
+                                <td class="text-black">
+                                    <!-- Remove the button from here -->
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="#" class="btn btn-success btn-sm">
+                    <i class="fa fa-plane"> Travel Mode</i>
+                </a>
+            </div>
+
+            <div class="card-footer text-muted">
+                <a href="#" class="btn btn-primary btn-sm">
+                    <?= $flight['button_proceed'] ?> Proceed
+                </a>
+            </div>
+        </div>
+
+    <?php endforeach; ?>
+
 
 
 
