@@ -51,6 +51,19 @@
             border-right: none;
 
         }
+
+        /* Default button style */
+
+
+        /* Media query for smaller screens (e.g., mobile devices) */
+        @media (max-width: 767px) {
+            /* .btn {
+                font-size: 1.0rem;
+                /* Adjusted font size for smaller screens */
+            /* padding: 0.3rem 0.6rem; */
+            /* Adjusted padding for smaller screens */
+            /* } */
+        }
     </style>
     <style>
         .dinnis-card {
@@ -141,7 +154,7 @@
         /* Custom CSS */
         @media (max-width: 767px) {
             .text-sm {
-                font-size: 0.55rem;
+                font-size: 0.77rem;
                 /* Adjust the font size as needed */
             }
         }
@@ -152,7 +165,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#05203c">
-        <a class="navbar-brand text-white" href="#">Your Logo</a>
+        <a class="navbar-brand text-white" href="#"> <img src="images/logo.jpeg" width="650px" height="65px"> </a>
         <button class="navbar-toggler custom-toggler" style="background-color:white;" type="button"
             data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -176,28 +189,30 @@
 
     <section class="form1 cid-tYw5BuHVEL mbr-fullscreen mbr-parallax-background" id="form1-s" class="text-white"
         style="background-color: #05203c;background-image: none !important;">
+
         <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(5, 32, 60);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mx-auto mbr-form" data-form-type="formoid">
 
-
-                    <div class="container mt-3 col-12 justify-content-start d-flex">
+                    <div class="container col-12 justify-content-start d-flex" style="margin-bottom: 7rem!important;">
                         <div class="row">
                             <div class="col">
-                                <button type="button" onclick="openTab('flights')"
-                                    class="btn btn-danger text-sm">Flights</button>
+                                <button type="button" onclick="openTab('flights')" class="btn btn-lg text-sm text-white"
+                                    style="background-color: #F57D1F;">Flights</button>
                             </div>
                             <div class="col">
-                                <button type="button" onclick="openTab('hotels')"
-                                    class="btn btn-danger text-sm">Hotels</button>
+                                <button type="button" onclick="openTab('hotels')" class="btn btn-lg text-sm text-white"
+                                    style="background-color: #F57D1F;">Hotels</button>
                             </div>
                             <div class="col">
-                                <button type="button" onclick="openTab('cars')"
-                                    class="btn btn-danger text-sm">Packages</button>
+                                <button type="button" onclick="openTab('cars')" class="btn btn-lg text-sm text-white"
+                                    style="background-color: #F57D1F; width: 109%;">Packages</button>
                             </div>
                         </div>
                     </div>
+
+
                     <!-- Hotel Search Form -->
                     <div class="tab-content" id="hotels">
                         <!-- searching.php...../Routes/searchRoutes.php -->
@@ -242,7 +257,8 @@
                             <div class="dragArea row d-flex align-items-end">
                                 <div class="col-md col-12 form-group" data-for="roomtype">
                                     <label for="roomtype-form1-s" class="text-white">Room Type</label>
-                                    <select name="roomtype" class="form-select custom-select" id="roomtype-form1-s" required>
+                                    <select name="roomtype" class="form-select custom-select" id="roomtype-form1-s"
+                                        required>
                                         <option value="">Select Room Type</option>
                                         <option value="single">Single Room</option>
                                         <option value="double">Double Room</option>
@@ -283,8 +299,7 @@
                             <div class="dragArea row d-flex align-items-end">
                                 <div class="col-12">
                                     <h1 class="mbr-section-title mb-4 mbr-fonts-style align-center display-2">
-                                        <strong class="text-white">Millions of cheap flights. One simple search.
-                                            flights</strong>
+                                        <strong class="text-white">Cheapest Airfares To India</strong>
                                     </h1>
                                 </div>
                                 <div class="col-md col-12 form-group" data-for="from">
