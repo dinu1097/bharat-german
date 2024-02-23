@@ -213,14 +213,19 @@
     ?>
 
     <?php foreach ($flightsByAirline as $airlineName => $flights): ?>
+
         <div class="card mt-5 bg-white">
+            <div class="text-center">
+                <h1> Only few seats left at this price.</h1>
+            </div>
             <div class="card-header text-black">
                 <h1>
                     <?= $airlineName ?>
                 </h1>
             </div>
-            <div class="card-body">
-                <table class="table" style="color: white;">
+            <div class="card-body text-left"> <!-- Aligning the card body content to the left -->
+ 
+            <table class="table" style="color: white;">
                     <thead>
                         <tr>
                             <th class="text-black">Logo</th>
@@ -228,7 +233,7 @@
                             <th class="text-black">Flying From</th>
                             <th class="text-black">Flying To</th>
                             <th class="text-black">Fare/Price</th>
-                            <th class="text-black">Action</th>
+                            <!-- <th class="text-black">Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -268,7 +273,12 @@
                     <?= $flight['button_proceed'] ?> Proceed
                 </a>
             </div>
+            <div class="text-center"> <!-- Centering the content -->
+                <h1>Call Us For Even Lower Prices 011-45603777 OR <button class="btn btn-success">Request A Call
+                        Back</button></h1>
+            </div>
         </div>
+
 
     <?php endforeach; ?>
 

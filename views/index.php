@@ -26,7 +26,14 @@
     <link rel="stylesheet" href="https://r.mobirisesite.com/345126/assets/css/mbr-additional.css?rnd=1702649070151"
         type="text/css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+        .btn-lg {
+            font-size: 2rem;
+        }
+
         /* Add this style to set the black bottom border for accordion items */
         .accordion-button:not(.collapsed) {
             background-color: transparent !important;
@@ -66,6 +73,11 @@
         }
     </style>
     <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <style>
         .dinnis-card {
             display: flex;
             flex-direction: row;
@@ -75,6 +87,7 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             height: 100px;
+            width: 20%;
             /* Set the fixed height for the card */
         }
 
@@ -154,8 +167,13 @@
         /* Custom CSS */
         @media (max-width: 767px) {
             .text-sm {
-                font-size: 0.77rem;
+                font-size: 1.7rem;
                 /* Adjust the font size as needed */
+            }
+
+            .logo-image {
+                width: 90px;
+                height: 50px;
             }
         }
     </style>
@@ -164,23 +182,31 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#05203c">
-        <a class="navbar-brand text-white" href="#"> <img src="images/logo.jpeg" width="650px" height="65px"> </a>
-        <button class="navbar-toggler custom-toggler" style="background-color:white;" type="button"
-            data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light"
+        style="background-color:#e0dfdb;padding: 0rem 1rem;align-items: center;">
+        <div>
+            <a class="navbar-brand text-white" href="#"> <img src="images/logo.jpeg" class="logo-image" width="65px"
+                    height="65px"> </a>
+
+        </div>
+        <div>
+            <button class="navbar-toggler custom-toggler" style="background-color:white;" type="button"
+                data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-black" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">About</a>
+                    <a class="nav-link text-black" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Contact Us</a>
+                    <a class="nav-link text-black" href="#">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -195,20 +221,20 @@
             <div class="row">
                 <div class="col-lg-12 mx-auto mbr-form" data-form-type="formoid">
 
-                    <div class="container col-12 justify-content-start d-flex" style="margin-bottom: 7rem!important;">
+                    <div class="container col-12 justify-content-center d-flex" style="margin-bottom: 3rem!important;">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-6">
                                 <button type="button" onclick="openTab('flights')" class="btn btn-lg text-sm text-white"
                                     style="background-color: #F57D1F;">Flights</button>
                             </div>
-                            <div class="col">
+                            <div class="col-6">
                                 <button type="button" onclick="openTab('hotels')" class="btn btn-lg text-sm text-white"
                                     style="background-color: #F57D1F;">Hotels</button>
                             </div>
-                            <div class="col">
+                            <!-- <div class="col">
                                 <button type="button" onclick="openTab('cars')" class="btn btn-lg text-sm text-white"
                                     style="background-color: #F57D1F; width: 109%;">Packages</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -218,11 +244,10 @@
                         <!-- searching.php...../Routes/searchRoutes.php -->
                         <form action="searching.php" method="post">
                             <input type="hidden" name="action" value="searchHotels">
-                            <div class="dragArea row d-flex align-items-end">
-                                <div class="col-12">
-                                    <h1 class="mbr-section-title mb-4 mbr-fonts-style align-center display-2">
-                                        <strong class="text-white">Millions of cheap hotels. One simple
-                                            search.</strong>
+                            <div class="dragArea row d-flex align-items-center">
+                                <div class="col-12" style="margin-bottom:40px;">
+                                    <h1 class="mbr-section-title mb-1 mbr-fonts-style align-center display-2">
+                                        <strong class="text-white">Cheapest Hotels In India</strong>
                                     </h1>
                                 </div>
                                 <div class="col-md col-12 form-group" data-for="hotel-city">
@@ -297,34 +322,14 @@
                         <form action="searching.php" method="post">
                             <input type="hidden" name="action" value="searchFlights">
                             <div class="dragArea row d-flex align-items-end">
-                                <div class="col-12">
-                                    <h1 class="mbr-section-title mb-4 mbr-fonts-style align-center display-2">
+                                <div class="col-12" style="margin-bottom:40px;">
+                                    <h1 class="mbr-section-title mb-1 mbr-fonts-style align-center display-2">
                                         <strong class="text-white">Cheapest Airfares To India</strong>
                                     </h1>
                                 </div>
-                                <div class="col-md col-12 form-group" data-for="from">
-                                    <label for="from-form1-s" class="text-white">Flying From</label>
-                                    <select class="form-control" id="from-form1-s" name="from" required>
-                                        <option value="">Choose...</option>
-                                        <option value="Delhi">Delhi</option>
-                                        <option value="Mumbai">Mumbai</option>
-                                        <option value="Ahmedabad">Ahmedabad</option>
-                                        <option value="Bangalore">Bangalore</option>
-                                        <option value="Chennai">Chennai</option>
-                                        <option value="Hyderabad">Hyderabad</option>
-                                        <option value="Kolkata">Kolkata</option>
-                                        <option value="Pune">Pune</option>
-                                        <option value="Amritsar">Amritsar</option>
-                                        <option value="Kochi-Cochin">Kochi-Cochin</option>
-                                        <option value="Goa">Goa</option>
-                                        <option value="Jaipur">Jaipur</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md col-12 form-group">
-                                    <label for="citySelect" class="text-white">Flying To</label>
-                                    <select class="form-control" id="citySelect" name="to" required>
-                                        <option value="">Choose...</option>
+                                <div class="col-md col-12 form-group d-flex flex-column">
+                                    <select multiple class="form-control" id="selectBox22" name="from">
+                                        <option value="" disabled selected></option>
                                         <option value="Anchorage">Anchorage</option>
                                         <option value="Albany">Albany</option>
                                         <option value="Albuquerque">Albuquerque</option>
@@ -439,7 +444,132 @@
                                         <option value="Wichita">Wichita</option>
                                         <option value="Wilmington">Wilmington</option>
                                     </select>
+                                    <label for="from-form1-s" class="text-white">Flying From</label>
+                                    <input type="text" class="form-control" id="searchBox22" placeholder="Search..."
+                                        name="from">
                                 </div>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#searchBox22').on('input', function () {
+                                            var searchText = $(this).val().toLowerCase();
+                                            if (searchText.length > 0) {
+                                                $('#selectBox22').show(); // Show select box when there is input
+                                                $('#selectBox22 option').each(function () {
+                                                    var optionText = $(this).text().toLowerCase();
+                                                    var match = optionText.includes(searchText);
+                                                    $(this).toggle(match);
+                                                });
+                                            } else {
+                                                $('#selectBox22').hide(); // Hide select box when there is no input
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#selectBox22').change(function () {
+                                            var selectedOptions = $(this).val();
+                                            if (selectedOptions && selectedOptions.length > 0) {
+                                                $('#searchBox22').val(selectedOptions.join(', '));
+                                            } else {
+                                                $('#searchBox22').val('');
+                                            }
+                                        });
+
+                                        $('#selectBox22 option').click(function () {
+                                            var selectedOption = $(this).val();
+                                            $('#searchBox22').val(selectedOption);
+                                        });
+
+                                        $('#searchBox22').on('input', function () {
+                                            var searchText = $(this).val().toLowerCase();
+                                            if (searchText.length > 0) {
+                                                $('#selectBox22').show(); // Show select box when there is input
+                                                $('#selectBox22 option').each(function () {
+                                                    var optionText = $(this).text().toLowerCase();
+                                                    var match = optionText.includes(searchText);
+                                                    $(this).toggle(match);
+                                                });
+                                            } else {
+                                                $('#selectBox22').hide(); // Hide select box when there is no input
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
+                                <div class="col-md col-12 form-group d-flex flex-column">
+                                    <select multiple class="form-control" id="selectBox11" name="to">
+                                        <option value="" disabled selected></option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Ahmedabad">Ahmedabad</option>
+                                        <option value="Bangalore">Bangalore</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Hyderabad">Hyderabad</option>
+                                        <option value="Kolkata">Kolkata</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Amritsar">Amritsar</option>
+                                        <option value="Kochi-Cochin">Kochi-Cochin</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Jaipur">Jaipur</option>
+                                    </select>
+                                    <label for="from-form1-s" class="text-white">Flying To</label>
+                                    <input type="text" class="form-control" id="searchBox11" placeholder="Search...">
+                                </div>
+
+
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#searchBox11').on('input', function () {
+                                            var searchText = $(this).val().toLowerCase();
+                                            if (searchText.length > 0) {
+                                                $('#selectBox11').show(); // Show select box when there is input
+                                                $('#selectBox11 option').each(function () {
+                                                    var optionText = $(this).text().toLowerCase();
+                                                    var match = optionText.includes(searchText);
+                                                    $(this).toggle(match);
+                                                });
+                                            } else {
+                                                $('#selectBox11').hide(); // Hide select box when there is no input
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#selectBox11').change(function () {
+                                            var selectedOptions = $(this).val();
+                                            if (selectedOptions && selectedOptions.length > 0) {
+                                                $('#searchBox11').val(selectedOptions.join(', '));
+                                            } else {
+                                                $('#searchBox11').val('');
+                                            }
+                                        });
+
+                                        $('#selectBox11 option').click(function () {
+                                            var selectedOption = $(this).val();
+                                            $('#searchBox11').val(selectedOption);
+                                        });
+
+                                        $('#searchBox11').on('input', function () {
+                                            var searchText = $(this).val().toLowerCase();
+                                            if (searchText.length > 0) {
+                                                $('#selectBox11').show(); // Show select box when there is input
+                                                $('#selectBox11 option').each(function () {
+                                                    var optionText = $(this).text().toLowerCase();
+                                                    var match = optionText.includes(searchText);
+                                                    $(this).toggle(match);
+                                                });
+                                            } else {
+                                                $('#selectBox11').hide(); // Hide select box when there is no input
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
                                 <div class="col-md col-12 form-group" data-for="departuredate">
                                     <label for="departuredate-form1-s" class="text-white">Departure Date</label>
                                     <input type="date" name="departuredate" placeholder="Select your departure date"
@@ -616,70 +746,60 @@
     <div class="dinnis-card-container">
 
         <div class="dinnis-card">
-            <img src="images/img1.jpg" alt="Image 1">
-            <div class="dinnis-card-text">Card 1</div>
+            <img src="images/cities/delhi.jpeg" alt="Image 1">
+            <div class="dinnis-card-text">Delhi</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img2.jpg" alt="Image 2">
-            <div class="dinnis-card-text">Card 2</div>
+            <img src="images/cities/mumbai.jpg" alt="Image 2">
+            <div class="dinnis-card-text">Mumbai</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img3.jpg" alt="Image 3">
-            <div class="dinnis-card-text">Card 3</div>
+            <img src="images/cities/bangaluru.jpg" alt="Image 3">
+            <div class="dinnis-card-text">Bangaluru</div>
         </div>
 
-        <div class="dinnis-card">
-            <img src="images/img4.jpg" alt="Image 4">
-            <div class="dinnis-card-text">Card 4</div>
-        </div>
+
 
     </div>
     <div class="dinnis-card-container">
 
         <div class="dinnis-card">
-            <img src="images/img1.jpg" alt="Image 1">
-            <div class="dinnis-card-text">Card 1</div>
+            <img src="images/cities/hydrabad.jpg" alt="Image 1">
+            <div class="dinnis-card-text">Hyderabad</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img2.jpg" alt="Image 2">
-            <div class="dinnis-card-text">Card 2</div>
+            <img src="images/cities/chennai.jpeg" alt="Image 2">
+            <div class="dinnis-card-text">Chennai</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img3.jpg" alt="Image 3">
-            <div class="dinnis-card-text">Card 3</div>
+            <img src="images/cities/pune.jpeg" alt="Image 3">
+            <div class="dinnis-card-text">Pune</div>
         </div>
 
-        <div class="dinnis-card">
-            <img src="images/img4.jpg" alt="Image 4">
-            <div class="dinnis-card-text">Card 4</div>
-        </div>
 
     </div>
     <div class="dinnis-card-container">
 
         <div class="dinnis-card">
-            <img src="images/img1.jpg" alt="Image 1">
-            <div class="dinnis-card-text">Card 1</div>
+            <img src="images/cities/jaipur.jpg" alt="Image 1">
+            <div class="dinnis-card-text">Jaipur</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img2.jpg" alt="Image 2">
-            <div class="dinnis-card-text">Card 2</div>
+            <img src="images/cities/kochi.jpeg" alt="Image 2">
+            <div class="dinnis-card-text">Kochi</div>
         </div>
 
         <div class="dinnis-card">
-            <img src="images/img3.jpg" alt="Image 3">
-            <div class="dinnis-card-text">Card 3</div>
+            <img src="images/cities/ayodhya.jpeg" alt="Image 3">
+            <div class="dinnis-card-text">Ayodhya</div>
         </div>
 
-        <div class="dinnis-card">
-            <img src="images/img4.jpg" alt="Image 4">
-            <div class="dinnis-card-text">Card 4</div>
-        </div>
+
 
     </div>
 
